@@ -8,10 +8,18 @@
     margin: 1rem;
 }
 
+.cardImage {
+    margin: 1px;
+}
+
+.nav {
+    width: 100%;
+}
+
 body {   
     align-items: center;    
     display: flex; 
-    flex-direction: column;        
+    flex-direction: column;    
 }
 
 form {
@@ -20,3 +28,4 @@ form {
     margin: 8px;
     padding: 8px;
 }
+
