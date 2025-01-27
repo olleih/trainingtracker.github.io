@@ -13,7 +13,7 @@
 
     <body>
         <h1>Training Tracker</h1>
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar navbar-expand-sm navbar bg-body-tertiary nav">
             <div class="container-fluid">
               <a class="navbar-brand" href="index.html">Home</a>
               <a class="navbar-brand" href="trainings.html">Trainings</a>
@@ -22,7 +22,7 @@
           </nav>
         <h2>Your Trainings</h2>
 
-        <table class="table table-info">
+        <table class="table table-info" id="sportsTable">
             <thead>
               <tr>
                 <th scope="col">Sport/Event</th>
@@ -46,27 +46,52 @@
               </tr>
             </tbody>
           </table>
-          <button>Add</button>
 
-          <form>
-            <div class="mb-3">
+          <form id="sportsForm">
+            <div class="mb-3 formInput">
               <label for="sportInput" class="form-label">Sport/Event</label>
               <input placeholder="Type sport or event" type="text" class="form-control" id="sportInput">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 formInput">
                 <label for="durationInput" class="form-label">Duration</label>
                 <input placeholder="Type duration" type="text" class="form-control" id="durationInput">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 formInput">
                 <label for="dateInput" class="form-label">Date</label>
-                <input placeholder="Type date" type="date" class="form-control" id="dateInput">
+                <input type="date" class="form-control" id="dateInput">
             </div>
-            <div class="mb-3">
+            <div class="mb-3 formInput">
                 <label for="freeInput" class="form-label">Free description</label>
                 <input placeholder="Type description" type="text" class="form-control" id="freeInput">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary formButton">Submit</button>
           </form>
+
+          <script>
+            const form = document.getElementById('sportsForm');
+            const tableBody = document.querySelector('#sportsTable tbody');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+            
+                const sport = document.getElementById('sportInput').value;
+                const duration = document.getElementById('durationInput').value;
+                const date = document.getElementById('dateInput').value;
+                const freeDescription = document.getElementById('freeInput').value;
+
+                const newRow = document.createElement('tr');
+
+                newRow.innerHTML = `
+                <td>${sport}</td>
+                <td>${duration}</td>
+                <td>${new Date(date).toLocaleDateString()}</td>
+                <td>${freeDescription}</td>
+                `;
+
+                tableBody.appendChild(newRow);
+                form.reset();
+            });          
+          </script>
     </body>
 
 </html>

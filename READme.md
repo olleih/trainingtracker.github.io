@@ -1,6 +1,6 @@
 This is my a project for Haaga-Helia's Digitekniikat -course. The assignment is to get to know bootstrap. My site should contain:
 
-- Responsiivinen navigaatio, jossa hampurilais-valikko
+- Responsiivinen navigaatio, jossa hampurilaisvalikko
 - Kuvakaruselli
 - Ruudukko
 - Kortit
